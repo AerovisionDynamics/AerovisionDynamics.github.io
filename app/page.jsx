@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { GraduationCap, Trophy, Satellite, Cog, CircuitBoard, Star, ShieldCheck, ArrowUpRight, BookOpen, FlaskConical, ChevronRight, Sparkles } from "lucide-react";
+import { Trophy, Satellite, Cog, CircuitBoard, Star, ShieldCheck, ArrowUpRight, BookOpen, FlaskConical, ChevronRight, Sparkles } from "lucide-react";
 
 // Lightweight UI primitives (swap with shadcn/ui if available)
 const Button = ({ className = "", children, as = "button", ...props }) => {
@@ -52,16 +53,21 @@ const SectionTitle = ({ eyebrow, title, subtitle }) => (
 );
 
 const LogoMark = () => (
-  <div className="flex items-center gap-2">
-    <div className="relative">
-      <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-sky-300/50 to-blue-500/30 blur-md" />
-      <div className="relative grid h-9 w-9 place-items-center rounded-full bg-white shadow ring-1 ring-slate-200">
-        <GraduationCap className="h-5 w-5 text-sky-600" />
-      </div>
+  <div className="flex items-center gap-3">
+    <div className="relative h-14 w-14">
+      <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-sky-300/10 to-blue-500/10 blur-lg" aria-hidden />
+      <Image
+        src="/logo-kkc.png"
+        alt="Keizer Karel College logo"
+        width={56}
+        height={56}
+        className="relative h-14 w-14 object-contain drop-shadow-sm"
+        priority
+      />
     </div>
-    <span className="text-lg font-semibold tracking-tight text-slate-900">
+    <span className="flex flex-col text-lg font-semibold tracking-tight text-slate-900 sm:flex-row sm:items-center sm:gap-2">
       Aerovision <span className="text-sky-700">Dynamics</span>
-      <span className="ml-2 rounded-full bg-sky-50 px-2 py-0.5 text-xs font-medium text-sky-700 ring-1 ring-sky-200">Keizer Karel College</span>
+      <span className="mt-1 hidden rounded-full bg-sky-50 px-2 py-0.5 text-xs font-medium text-sky-700 ring-1 ring-sky-200 sm:inline-flex">Keizer Karel College</span>
     </span>
   </div>
 );
@@ -77,7 +83,7 @@ const Header = () => (
           </a>
         ))}
       </nav>
-      <div className="flex items-center gap-2">
+      <div className="hidden items-center gap-2 md:flex">
         <Button as="a" href="#goals" className="bg-sky-600 text-white hover:bg-sky-700">
           Explore our mission
           <ArrowUpRight className="h-4 w-4" />

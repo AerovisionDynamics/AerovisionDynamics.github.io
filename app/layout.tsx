@@ -17,7 +17,8 @@ export const metadata: Metadata = {
   description: "Created by Aerovision Dynamics",
   icons: {
     icon: [
-      { url: "/logo-kkc.png", type: "image/png" },
+      { url: "/logo-kkc.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo-kkc.png", sizes: "192x192", type: "image/png" },
     ],
     shortcut: "/logo-kkc.png",
     apple: "/logo-kkc.png",
