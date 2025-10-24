@@ -57,8 +57,8 @@ const LogoMark = () => (
     <div className="relative h-14 w-14">
       <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-sky-300/10 to-blue-500/10 blur-lg" aria-hidden />
       <Image
-        src="/logo-kkc.png"
-        alt="Keizer Karel College logo"
+        src="/aerovision-dynamics-logo-new.png"
+        alt="Aerovision Dynamics logo"
         width={56}
         height={56}
         className="relative h-14 w-14 object-contain drop-shadow-sm"
@@ -66,7 +66,7 @@ const LogoMark = () => (
       />
     </div>
     <span className="flex flex-col text-lg font-semibold tracking-tight text-slate-900 sm:flex-row sm:items-center sm:gap-2">
-      Aerovision <span className="text-sky-700">Dynamics</span>
+      <span className="font-moderniz">Aerovision <span className="text-sky-700">Dynamics</span></span>
       <span className="mt-1 hidden rounded-full bg-sky-50 px-2 py-0.5 text-xs font-medium text-sky-700 ring-1 ring-sky-200 sm:inline-flex">Keizer Karel College</span>
     </span>
   </div>
@@ -416,7 +416,7 @@ const Footer = () => (
           </div>
         </div>
       </div>
-      <div className="mt-6 text-xs text-slate-500">© {new Date().getFullYear()} Aerovision Dynamics. All rights reserved.</div>
+      <div className="mt-6 text-xs text-slate-500">© {new Date().getFullYear()} Aerovision Dynamics. All rights reserved. Website by Jiarui Yu</div>
     </div>
     <a href="#top" className="fixed bottom-5 right-5 grid h-10 w-10 place-items-center rounded-full bg-white shadow-lg ring-1 ring-slate-200 hover:bg-sky-50" aria-label="Back to top">
       ↑
