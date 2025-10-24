@@ -15,6 +15,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Aerovision Dynamics",
   description: "Created by Aerovision Dynamics",
+  icons: {
+    icon: [
+      { url: "/logo-kkc.png", type: "image/png" },
+    ],
+    shortcut: "/logo-kkc.png",
+    apple: "/logo-kkc.png",
+  },
 };
 
 export default function RootLayout({
