@@ -6,6 +6,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Trophy, Satellite, Cog, CircuitBoard, Star, ShieldCheck, ArrowUpRight, BookOpen, FlaskConical, ChevronRight, Sparkles } from "lucide-react";
 
+const DEFAULT_BLUR_DATA_URL =
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNFMEY3RkYiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9zdmc+";
+
 // Lightweight UI primitives (swap with shadcn/ui if available)
 const Button = ({ className = "", children, as = "button", ...props }) => {
   const Comp = as;
@@ -31,9 +34,9 @@ const Badge = ({ children, className = "" }) => (
 
 const navItems = [
   { href: "#about", label: "About" },
-  { href: "#goals", label: "Goals" },
   { href: "#labs", label: "Labs" },
   { href: "#awards", label: "Awards" },
+  { href: "#appraisals", label: "Appraisals" },
   { href: "#projects", label: "Projects" },
   { href: "#team", label: "Team" },
 ];
@@ -68,7 +71,6 @@ const LogoMark = () => (
     </div>
     <span className="flex flex-col text-lg font-semibold tracking-tight text-slate-900 sm:flex-row sm:items-center sm:gap-2">
       <span className="font-moderniz">Aerovision <span className="text-sky-700">Dynamics</span></span>
-      <span className="mt-1 hidden rounded-full bg-sky-50 px-2 py-0.5 text-xs font-medium text-sky-700 ring-1 ring-sky-200 sm:inline-flex">Keizer Karel College</span>
     </span>
   </div>
 );
@@ -84,9 +86,9 @@ const Header = () => (
           </a>
         ))}
       </nav>
-      <div className="hidden items-center gap-2 md:flex">
-        <Button as="a" href="#goals" className="bg-sky-600 text-white hover:bg-sky-700">
-          Explore our mission
+      <div className="hidden items-center gap-2 md:flex md:pl-6">
+        <Button as="a" href="#projects" className="bg-sky-600 text-white hover:bg-sky-700">
+          Explore our projects
           <ArrowUpRight className="h-4 w-4" />
         </Button>
       </div>
@@ -181,7 +183,7 @@ const About = () => (
       <SectionTitle
         eyebrow="Who we are"
         title="Precision builders."
-        subtitle="We are an ambitious student team at Keizer Karel College, passionate about aerospace engineering and hands-on learning."
+        subtitle="We are an ambitious student team at Keizer Karel College, passionate about aerospace engineering and hands-on learning. We are a group of students inspired by flight and innovation. Our mission is to design, build, and test aerospace systems that either benefit soceity or useless stuff we find cool. Through hands-on projects, we aim to develop practical skills, foster teamwork, and ignite a passion for aerospace engineering among our peers."
       />
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {[
@@ -200,18 +202,6 @@ const About = () => (
           </Card>
         ))}
       </div>
-    </div>
-  </section>
-);
-
-const Goals = () => (
-  <section id="goals" className="relative py-20">
-    <div className="mx-auto max-w-7xl px-4">
-      <SectionTitle
-        eyebrow="This is what we aim for"
-        title="Our mission"
-        subtitle="We are a group of students inspired by flight and innovation. Our mission is to design, build, and test aerospace systems that either benefit soceity or useless stuff we find cool. Through hands-on projects, we aim to develop practical skills, foster teamwork, and ignite a passion for aerospace engineering among our peers."
-      />
     </div>
   </section>
 );
@@ -283,6 +273,39 @@ const Awards = () => (
   </section>
 );
 
+const Appraisals = () => (
+  <section id="appraisals" className="relative py-20">
+    <div className="mx-auto max-w-7xl px-4">
+      <SectionTitle
+        eyebrow="External perspectives"
+        title="Appraisals"
+        subtitle="Professional reflections on our work."
+      />
+      <div className="mt-10 grid gap-6 md:grid-cols-3">
+        {[
+          {
+            content:
+              "The product is presented at a high level for third-year students, with all elements thoroughly investigated.",
+            translation:
+              "Het product is op een hoog klas 3 niveau neergezet waarin alle elementen zijn onderzocht.",
+            author: "Dion Lembekker, Technator, Docent O&O en O&W",
+          },
+        ].map((appraisal, index) => (
+          <Card key={index} className="flex h-full flex-col gap-4 p-6">
+            <div className="flex-1">
+              <p className="text-sm leading-relaxed text-slate-600">{appraisal.content}</p>
+              {appraisal.translation && (
+                <p className="mt-2 text-sm italic text-slate-500">{appraisal.translation}</p>
+              )}
+            </div>
+            <span className="text-sm font-semibold text-slate-900">{appraisal.author}</span>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 const Projects = () => (
   <section id="projects" className="relative py-20">
     <div className="mx-auto max-w-7xl px-4">
@@ -297,18 +320,20 @@ const Projects = () => (
             tag: "Research concept",
             title: "Hermes‑01",
             body: "A conceptual rocket used for delivering medical supplies to remote areas.",
-            image: "/Poster.png",
+            image: "/Poster.webp",
           },
         ].map((p) => (
           <Card key={p.title} className="group overflow-hidden">
             <div className="relative h-40 w-full overflow-hidden">
               <Image
-                src={p.image ?? "/FinalProduct.jpeg"}
+                src={p.image ?? "/FinalProduct.webp"}
                 alt={`${p.title} preview`}
                 fill
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={DEFAULT_BLUR_DATA_URL}
                 className="object-cover transition duration-300 ease-out group-hover:scale-105"
                 sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                priority
               />
             </div>
             <div className="p-6">
@@ -330,12 +355,12 @@ const Projects = () => (
 );
 
 const Team = () => (
-  <section id="team" className="relative py-20">
+  <section id="team" className="relative mt-24 py-20 lg:mt-28">
     <div className="mx-auto max-w-7xl px-4">
       <SectionTitle
         eyebrow="Our people"
         title="Team"
-        subtitle="Six motivated members at Keizer Karel College (two co‑founders). Here’s what each person has contributed."
+        subtitle="Six motivated members at Keizer Karel College. Here’s what each person has contributed."
       />
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {[
@@ -422,7 +447,7 @@ const Footer = () => (
       <div className="grid gap-6 md:grid-cols-2">
         <LogoMark />
         <div className="md:justify-self-end">
-          <div className="flex gap-6 text-sm text-slate-600">
+          <div className="flex gap-6 px-2 text-sm text-slate-600">
             {navItems.map((n) => (
               <a key={n.href} href={n.href} className="hover:text-sky-700">{n.label}</a>
             ))}
@@ -443,9 +468,9 @@ export default function AerovisionDynamicsSchoolHome() {
       <Header />
       <Hero />
       <About />
-      <Goals />
       <Labs />
       <Awards />
+      <Appraisals />
       <Projects />
       <Team />
       <Footer />

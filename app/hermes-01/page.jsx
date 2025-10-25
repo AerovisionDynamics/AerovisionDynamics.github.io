@@ -2,27 +2,30 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, MapPinned, Rocket, Shield, Wrench } from "lucide-react";
 
+const DEFAULT_BLUR_DATA_URL =
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNFMEY3RkYiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9zdmc+";
+
 export const metadata = {
   title: "Hermes-01 Project Brief | Aerovision Dynamics",
   description: "Humanitarian rocket concept blending low cost hardware, autonomous guidance, and field validated safeguards.",
 };
 
 const prototypeImage = {
-  src: "/FinalProduct.jpeg",
+  src: "/FinalProduct.webp",
   alt: "Completed Hermes-01 prototype standing on a launch fixture",
   width: 1600,
   height: 1200,
 };
 
 const astronautImage = {
-  src: "/AndreKuipersSigningRocket.jpeg",
+  src: "/AndreKuipersSigningRocket.webp",
   alt: "André Kuipers autographing the Hermes-01 rocket at Vakkanjers Explorer",
   width: 1600,
   height: 1200,
 };
 
 const celebrationImage = {
-  src: "/SecondPrizeGroupPic.jpeg",
+  src: "/SecondPrizeGroupPic.webp",
   alt: "Aerovision Dynamics team celebrating second place with certificate and rocket",
   width: 1600,
   height: 1200,
@@ -77,11 +80,13 @@ export default function Hermes01Page() {
         <figure className="mt-10 space-y-3">
           <div className="relative aspect-[16/9] overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
             <Image
-              src="/Poster.png"
+              src="/Poster.webp"
               alt="Hermes-01 poster overview"
               fill
+              loading="lazy"
+              placeholder="blur"
+              blurDataURL={DEFAULT_BLUR_DATA_URL}
               className="object-cover"
-              priority
             />
           </div>
           <figcaption className="text-xs uppercase tracking-widest text-slate-400">
@@ -150,6 +155,9 @@ export default function Hermes01Page() {
                   height={prototypeImage.height}
                   className="w-full rounded-3xl"
                   sizes="(min-width: 1024px) 60vw, 90vw"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={DEFAULT_BLUR_DATA_URL}
                 />
               </div>
               <figcaption className="text-xs uppercase tracking-widest text-slate-400">
@@ -200,6 +208,9 @@ export default function Hermes01Page() {
                   height={astronautImage.height}
                   className="w-full rounded-3xl"
                   sizes="(min-width: 1024px) 60vw, 90vw"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={DEFAULT_BLUR_DATA_URL}
                 />
               </div>
               <figcaption className="text-xs uppercase tracking-widest text-slate-400">
@@ -233,6 +244,9 @@ export default function Hermes01Page() {
                   height={celebrationImage.height}
                   className="w-full rounded-3xl"
                   sizes="(min-width: 1024px) 60vw, 90vw"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={DEFAULT_BLUR_DATA_URL}
                 />
               </div>
               <figcaption className="text-xs uppercase tracking-widest text-slate-400">
