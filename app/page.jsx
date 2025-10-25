@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Trophy, Satellite, Cog, CircuitBoard, Star, ShieldCheck, ArrowUpRight, BookOpen, FlaskConical, ChevronRight, Sparkles } from "lucide-react";
@@ -296,18 +297,30 @@ const Projects = () => (
             tag: "Research concept",
             title: "Hermes‑01",
             body: "A conceptual rocket used for delivering medical supplies to remote areas.",
-            accent: "from-sky-500 to-blue-600",
+            image: "/Poster.png",
           },
         ].map((p) => (
           <Card key={p.title} className="group overflow-hidden">
-            <div className={`h-32 w-full bg-gradient-to-tr ${p.accent}`} />
+            <div className="relative h-40 w-full overflow-hidden">
+              <Image
+                src={p.image ?? "/FinalProduct.jpeg"}
+                alt={`${p.title} preview`}
+                fill
+                className="object-cover transition duration-300 ease-out group-hover:scale-105"
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                priority
+              />
+            </div>
             <div className="p-6">
               <Badge className="mb-2">{p.tag}</Badge>
               <h3 className="text-lg font-semibold text-slate-900">{p.title}</h3>
               <p className="mt-1 text-sm text-slate-600">{p.body}</p>
-              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sky-700">
+              <Link
+                href="/hermes-01"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sky-700 transition hover:text-sky-800"
+              >
                 Project brief <ArrowUpRight className="h-4 w-4" />
-              </span>
+              </Link>
             </div>
           </Card>
         ))}
@@ -416,7 +429,7 @@ const Footer = () => (
           </div>
         </div>
       </div>
-      <div className="mt-6 text-xs text-slate-500">© {new Date().getFullYear()} Aerovision Dynamics. All rights reserved. Website by Jiarui Yu</div>
+      <div className="mt-6 text-xs text-slate-500">© {new Date().getFullYear()} Aerovision Dynamics. All rights reserved. Website by Jiarui Yu.</div>
     </div>
     <a href="#top" className="fixed bottom-5 right-5 grid h-10 w-10 place-items-center rounded-full bg-white shadow-lg ring-1 ring-slate-200 hover:bg-sky-50" aria-label="Back to top">
       ↑
