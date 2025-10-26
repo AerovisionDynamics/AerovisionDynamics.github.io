@@ -156,7 +156,7 @@ const Hero = () => (
           </div>
           <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-600">
             <li>Team led by Technasium students</li>
-            <li>Founded in 2024</li>
+            <li>Based at Keizer Karel College, Amstelveen</li>
             <li>We prototype, simulate, and bench‑test</li>
           </ul>
         </Card>
@@ -164,7 +164,7 @@ const Hero = () => (
           {[
             { label: "Members", value: "6" },
             { label: "Projects", value: "1" },
-            { label: "Started", value: "2024" },
+            { label: "Founded", value: "2024" },
           ].map((s) => (
             <Card key={s.label} className="p-4">
               <div className="text-2xl font-bold text-slate-900">{s.value}</div>
@@ -285,9 +285,9 @@ const Appraisals = () => (
         {[
           {
             content:
-              "The product is presented at a high level for third-year students, with all elements thoroughly investigated.",
+              "The product is presented at a high level for third-year students, with all elements thoroughly investigated. (Hermes-01)",
             translation:
-              "Het product is op een hoog klas 3 niveau neergezet waarin alle elementen zijn onderzocht.",
+              "Het product is op een hoog klas 3 niveau neergezet waarin alle elementen zijn onderzocht. (Hermes-01)",
             author: "Dion Lembekker, Technator, Docent O&O en O&W",
           },
         ].map((appraisal, index) => (
@@ -452,9 +452,20 @@ const Footer = () => (
               <a key={n.href} href={n.href} className="hover:text-sky-700">{n.label}</a>
             ))}
           </div>
+
+          <div className="mt-9 space-y-2 text-sm text-slate-600">
+            <div>
+              <span className="font-semibold text-slate-800">Contact us:</span>{" "}
+              <a href="mailto:8963@leerling.keizerkarelcollege.nl" className="hover:text-sky-700">8963@leerling.keizerkarelcollege.nl</a>
+            </div>
+            <div>
+              <span className="font-semibold text-slate-800">Address:</span>{" "}
+              Elegast 5, 1185AA Amstelveen, the Netherlands
+            </div>
+          </div>
         </div>
       </div>
-      <div className="mt-6 text-xs text-slate-500">© {new Date().getFullYear()} Aerovision Dynamics. All rights reserved. Website by Jiarui Yu.</div>
+      <div className="mt-0 text-xs text-slate-500">© {new Date().getFullYear()} Aerovision Dynamics. All rights reserved. Website by Jiarui Yu.</div>
     </div>
     <a href="#top" className="fixed bottom-5 right-5 grid h-10 w-10 place-items-center rounded-full bg-white shadow-lg ring-1 ring-slate-200 hover:bg-sky-50" aria-label="Back to top">
       ↑
