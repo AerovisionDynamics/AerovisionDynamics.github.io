@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Trophy, Satellite, Cog, CircuitBoard, Star, ShieldCheck, ArrowUpRight, BookOpen, FlaskConical, ChevronRight, Sparkles } from "lucide-react";
+import { Trophy, Satellite, Cog, CircuitBoard, Star, ShieldCheck, ArrowUpRight, BookOpen, FlaskConical, ChevronRight, Sparkles, MessageSquareQuote } from "lucide-react";
 
 const DEFAULT_BLUR_DATA_URL =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNFMEY3RkYiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9zdmc+";
@@ -273,38 +273,79 @@ const Awards = () => (
   </section>
 );
 
-const Appraisals = () => (
-  <section id="appraisals" className="relative py-20">
-    <div className="mx-auto max-w-7xl px-4">
-      <SectionTitle
-        eyebrow="External perspectives"
-        title="Appraisals"
-        subtitle="Professional reflections on our work."
-      />
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
-        {[
-          {
-            content:
-              "The product is presented at a high level for third-year students, with all elements thoroughly investigated. (Hermes-01)",
-            translation:
-              "Het product is op een hoog klas 3 niveau neergezet waarin alle elementen zijn onderzocht. (Hermes-01)",
-            author: "Dion Lembekker, Technator, Docent O&O en O&W",
-          },
-        ].map((appraisal, index) => (
-          <Card key={index} className="flex h-full flex-col gap-4 p-6">
-            <div className="flex-1">
-              <p className="text-sm leading-relaxed text-slate-600">{appraisal.content}</p>
-              {appraisal.translation && (
-                <p className="mt-2 text-sm italic text-slate-500">{appraisal.translation}</p>
-              )}
-            </div>
-            <span className="text-sm font-semibold text-slate-900">{appraisal.author}</span>
-          </Card>
-        ))}
+const Appraisals = () => {
+  const testimonials = [
+    {
+      content:
+        "The product is presented at a high level for third-year students, with all elements thoroughly investigated. (Hermes-01)",
+      translation:
+        "Het product is op een hoog klas 3 niveau neergezet waarin alle elementen zijn onderzocht. (Hermes-01)",
+      author: "Dion Lembekker, Technator, Docent O&O en O&W",
+    },
+  ];
+
+  const accentGradients = [
+    "from-sky-500/20 via-sky-400/10 to-transparent",
+    "from-cyan-500/20 via-cyan-400/10 to-transparent",
+    "from-indigo-500/20 via-indigo-400/10 to-transparent",
+  ];
+
+  return (
+    <section id="appraisals" className="relative overflow-hidden py-20">
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-sky-50 via-white to-sky-100" aria-hidden />
+      <div className="pointer-events-none absolute -left-20 top-24 -z-10 h-72 w-72 rounded-full bg-sky-200/40 blur-3xl" aria-hidden />
+      <div className="pointer-events-none absolute right-10 bottom-10 -z-10 h-64 w-64 rounded-full bg-blue-200/30 blur-3xl" aria-hidden />
+
+      <div className="mx-auto max-w-7xl px-4">
+        <SectionTitle
+          eyebrow="External perspectives"
+          title="Appraisals"
+          subtitle="Professional reflections on our work."
+        />
+        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((appraisal, index) => {
+            const accent = accentGradients[index % accentGradients.length];
+
+            return (
+              <motion.div
+                key={appraisal.author}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                className="group relative"
+              >
+                <div
+                  className={`absolute inset-x-6 top-0 h-24 rounded-3xl bg-gradient-to-br ${accent} opacity-0 blur-2xl transition group-hover:opacity-100`}
+                  aria-hidden
+                />
+                <Card className="relative flex h-full flex-col gap-6 overflow-hidden border-transparent bg-white/85 p-8 shadow-xl ring-1 ring-slate-200/60 transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                  <div className="flex items-center gap-3">
+                    <div className="grid h-12 w-12 place-items-center rounded-full bg-sky-50 text-sky-600 ring-1 ring-sky-100">
+                      <MessageSquareQuote className="h-6 w-6" />
+                    </div>
+                    <span className="text-xs font-semibold text-sky-700">Expert Appraisal</span>
+                  </div>
+
+                  <p className="text-sm leading-relaxed text-slate-700">{appraisal.content}</p>
+
+                  {appraisal.translation && (
+                    <div className="rounded-2xl bg-slate-900/5 p-4 text-xs text-slate-600">
+                      <span className="block text-[11px] font-semibold uppercase tracking-wider text-slate-400">Dutch</span>
+                      <span className="mt-1 block italic text-xs">{appraisal.translation}</span>
+                    </div>
+                  )}
+
+                  <div className="mt-auto text-xs font-semibold text-slate-900">{appraisal.author}</div>
+                </Card>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Projects = () => (
   <section id="projects" className="relative py-20">
