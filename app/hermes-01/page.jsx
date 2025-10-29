@@ -173,7 +173,7 @@ export default function Hermes01Page() {
               control system waypoints to chase, allowing live course correction as winds shift.
             </p>
             <p>
-              Fin actuation follows the Dynamic Angle method, scaling servo movement with airspeed to balance responsiveness and stability. The same
+              Fin actuation follows our custom Dynamic Angle method (as how we call it), scaling servo movement with airspeed to balance responsiveness and stability. The same
               algorithms feed into the mission UI so operators can audit every autonomous decision.
             </p>
             <div className="mt-6 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
@@ -191,9 +191,9 @@ export default function Hermes01Page() {
 
           <Section title="Human Centered Safeguards">
             <p>
-              The team validated visual identity choices with Ukrainian contacts who will view the rocket from the ground. Feedback from Vlad, a local
-              volunteer, confirmed that an orange parachute and red cross markings communicate relief rather than risk. Color detection testing backed
-              the decision by showing the orange canopy is spotted faster than green, white, or red in the mission UI. Failsafe bypass codes ensure
+              The team validated visual identity choices with Ukrainian contacts who will view the rocket from the ground. Feedback from Vlad, a person
+              living in Ukraine, who we found on Discord, confirmed that an orange parachute and red cross markings communicate relief rather than risk. Our own color detection testing backed
+              the decision by showing the orange parachute is spotted faster than green, white, or red. Failsafe bypass codes ensure
               only authorized responders can trigger a launch, reducing the risk of misuse in volatile regions.
             </p>
             <p>
@@ -221,7 +221,7 @@ export default function Hermes01Page() {
 
           <Section title="Evidence and Next Steps">
             <p>
-              Bench testing showed three of four servos hitting targets, flagging one unit for replacement before the next campaign. Satellite link
+              This is what we would do if we have more time to perfect it: Bench testing showed three of four servos hitting targets, flagging one unit for replacement. Satellite link
               checks confirmed GPS handshake reliability, and mock telemetry runs streamed speed, altitude, and weather data for post mission review.
             </p>
             <ul className="list-disc space-y-2 pl-5">
@@ -229,10 +229,10 @@ export default function Hermes01Page() {
                 Immediate actions: swap the failed servo, expand hardware-in-the-loop testing, and finalize the parachute visibility package.
               </li>
               <li>
-                Midterm goals: document CAD and wiring for release, migrate simulations into the mission UI, and stage a guided drop rehearsal.
+                Midterm goals: Create and manufacture our own PCB wiring for release, migrate simulations into the mission UI, and stage a guided drop rehearsal.
               </li>
               <li>
-                Recognition: the project earned second place in the Vakkanjers Explorer national finals, reinforcing confidence in the roadmap.
+                Recognition: the project earned second place in the Vakkanjers Explorer national finals.
               </li>
             </ul>
             <figure className="mt-6 space-y-3">
