@@ -57,19 +57,19 @@ const SectionTitle = ({ eyebrow, title, subtitle }) => (
 );
 
 const LogoMark = () => (
-  <div className="flex items-center gap-3">
-    <div className="relative h-14 w-14">
+  <div className="flex items-center gap-2 sm:gap-3">
+    <div className="relative h-12 w-12 sm:h-14 sm:w-14">
       <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-sky-300/10 to-blue-500/10 blur-lg" aria-hidden />
       <Image
         src="/aerovision-dynamics-logo-new.png"
         alt="Aerovision Dynamics logo"
         width={56}
         height={56}
-        className="relative h-14 w-14 object-contain drop-shadow-sm"
+        className="relative h-12 w-12 object-contain drop-shadow-sm sm:h-14 sm:w-14"
         priority
       />
     </div>
-    <span className="flex flex-col text-lg font-semibold tracking-tight text-slate-900 sm:flex-row sm:items-center sm:gap-2">
+    <span className="flex flex-col text-base font-semibold tracking-tight text-slate-900 sm:flex-row sm:items-center sm:gap-2 sm:text-lg">
       <span className="font-moderniz">Aerovision <span className="text-sky-700">Dynamics</span></span>
     </span>
   </div>
@@ -79,14 +79,14 @@ const Header = () => (
   <header className="fixed inset-x-0 top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/60">
     <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
       <LogoMark />
-      <nav className="hidden gap-6 md:flex">
+      <nav className="hidden flex-wrap gap-3 text-xs md:flex md:gap-4 md:text-xs lg:gap-6 lg:text-sm">
         {navItems.map((n) => (
-          <a key={n.href} href={n.href} className="text-sm font-medium text-slate-700 hover:text-sky-700">
+          <a key={n.href} href={n.href} className="text-xs font-medium text-slate-700 hover:text-sky-700 lg:text-sm">
             {n.label}
           </a>
         ))}
       </nav>
-      <div className="hidden items-center gap-2 md:flex md:pl-6">
+      <div className="hidden items-center gap-2 lg:flex lg:pl-6">
         <Button as="a" href="#projects" className="bg-sky-600 text-white hover:bg-sky-700">
           Explore our projects
           <ArrowUpRight className="h-4 w-4" />
@@ -488,7 +488,7 @@ const Footer = () => (
       <div className="grid gap-6 md:grid-cols-2">
         <LogoMark />
         <div className="md:justify-self-end">
-          <div className="flex gap-6 px-2 text-sm text-slate-600">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 px-2 text-sm text-slate-600">
             {navItems.map((n) => (
               <a key={n.href} href={n.href} className="hover:text-sky-700">{n.label}</a>
             ))}
