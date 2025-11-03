@@ -247,7 +247,7 @@ const Awards = () => (
           {
             title: "Vakkanjers Explorer",
             year: 2025,
-            body: "Second place nationally, joined and recgonized by former astronaut, André Kuipers. This contest was joined by almost 13000 students across the country.",
+            body: "Second place nationally, joined and recognized by former astronaut, André Kuipers. This contest was joined by almost 13000 students across the country.",
             imageSrc: "/IMG_0578.jpeg",
           },
         ].map((a) => (
@@ -435,7 +435,7 @@ const Team = () => (
           },
           {
             name: "Kurt",
-            role: "Recovery Systems",
+            role: "Former Member",
             projects: ["Hermes‑01"],
             tasks: [
               "Free fall simulations",
@@ -445,12 +445,12 @@ const Team = () => (
           },
           {
             name: "Jelle",
-            role: "Test & Data",
+            role: "Former Member",
             projects: ["Hermes-01"],
             tasks: [
               "Data review and analysis",
-              "Emotional support",
-              "Advanced data analysis and visualization",
+              "Psychological assistance",
+              "Assembly quality assurance",
             ],
           },
           {
