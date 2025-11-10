@@ -348,6 +348,25 @@ const Appraisals = () => {
 };
 
 // ...existing code...
+const projectCards = [
+  {
+    tag: "Research concept/prototype",
+    title: "Hermes‑01",
+    body: "A conceptual rocket used for delivering medical supplies to remote areas.",
+    image: "/Poster.webp",
+    href: "/hermes-01",
+    imageHeight: "h-52",
+  },
+  {
+    tag: "Research concept",
+    title: "Octo-Underwater Defender",
+    body: "An autonomous underwater vehicle prototype for monitoring and protecting submarine cables, using satellite communication and integrated sensors.",
+    image: "/Octodefender.webp",
+    href: "/Octo-underwater-defender",
+    imageHeight: "h-52",
+  },
+];
+
 const Projects = () => (
   <section id="projects" className="relative py-20">
     <div className="mx-auto max-w-7xl px-4">
@@ -357,32 +376,12 @@ const Projects = () => (
         subtitle="Our current and past projects."
       />
       <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {[
-          {
-            tag: "Research concept/prototype",
-            title: "Hermes‑01",
-            body: "A conceptual rocket used for delivering medical supplies to remote areas.",
-            image: "/Poster.webp",
-            href: "/hermes-01",
-          },
-          {
-  tag: "Research concept",
-  title: "Octo-Underwater Defender",
-  body: "An autonomous underwater vehicle prototype for monitoring and protecting submarine cables, using satellite communication and integrated sensors.",
-  image: "/Octodefender.webp",
-  href: "/Octo-underwater-defender",  // <-- this links to the new page
-},
-
-  
-        ].map((p) => (
-          <Card key={p.title} className="group overflow-hidden">
-            <div className={`relative w-full overflow-hidden ${
-    p.title === "Octo-Underwater Defender" ? "h-52" : "h-40"
-  }`}
->
+        {projectCards.map((project) => (
+          <Card key={project.title} className="group overflow-hidden">
+            <div className={`relative w-full overflow-hidden ${project.imageHeight ?? "h-40"}`}>
               <Image
-                src={p.image ?? "/FinalProduct.webp"}
-                alt={`${p.title} preview`}
+                src={project.image ?? "/FinalProduct.webp"}
+                alt={`${project.title} preview`}
                 fill
                 loading="lazy"
                 placeholder="blur"
@@ -392,11 +391,11 @@ const Projects = () => (
               />
             </div>
             <div className="p-6">
-              <Badge className="mb-2">{p.tag}</Badge>
-              <h3 className="text-lg font-semibold text-slate-900">{p.title}</h3>
-              <p className="mt-1 text-sm text-slate-600">{p.body}</p>
+              <Badge className="mb-2">{project.tag}</Badge>
+              <h3 className="text-lg font-semibold text-slate-900">{project.title}</h3>
+              <p className="mt-1 text-sm text-slate-600">{project.body}</p>
               <Link
-                href={p.href ?? "/hermes-01"}
+                href={project.href ?? "/hermes-01"}
                 className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sky-700 transition hover:text-sky-800"
               >
                 Project brief <ArrowUpRight className="h-4 w-4" />
@@ -405,6 +404,7 @@ const Projects = () => (
           </Card>
         ))}
       </div>
+      <p className="mt-6 text-xs uppercase tracking-wide text-slate-400">Image created by Jiarui Yu</p>
     </div>
   </section>
 );
