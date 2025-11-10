@@ -128,7 +128,7 @@ const Hero = () => (
           We engineer <span className="bg-gradient-to-r from-sky-600 to-blue-700 bg-clip-text text-transparent">the next leap.</span>
         </h1>
         <p className="mt-4 max-w-xl text-lg text-slate-600">
-          Aerovision Dynamics is a student-led division at the Keizer Karel College, focusing on anything that flies.
+          AeroVision Dynamics is a student-led division at Keizer Karel College, creating innovative engineering projects.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Button className="bg-sky-600 text-white hover:bg-sky-700" as="a" href="#projects">
@@ -163,7 +163,7 @@ const Hero = () => (
         <div className="mt-4 grid grid-cols-3 gap-3 text-center">
           {[
             { label: "Members", value: "6" },
-            { label: "Projects", value: "1" },
+            { label: "Projects", value: "2" },
             { label: "Founded", value: "2024" },
           ].map((s) => (
             <Card key={s.label} className="p-4">
@@ -347,6 +347,7 @@ const Appraisals = () => {
   );
 };
 
+// ...existing code...
 const Projects = () => (
   <section id="projects" className="relative py-20">
     <div className="mx-auto max-w-7xl px-4">
@@ -362,10 +363,23 @@ const Projects = () => (
             title: "Hermes‑01",
             body: "A conceptual rocket used for delivering medical supplies to remote areas.",
             image: "/Poster.webp",
+            href: "/hermes-01",
           },
+          {
+  tag: "Research concept",
+  title: "Octo-Underwater Defender",
+  body: "An autonomous underwater vehicle prototype for monitoring and protecting submarine cables, using satellite communication and integrated sensors.",
+  image: "/Octodefender.webp",
+  href: "/Octo-underwater-defender",  // <-- this links to the new page
+},
+
+  
         ].map((p) => (
           <Card key={p.title} className="group overflow-hidden">
-            <div className="relative h-40 w-full overflow-hidden">
+            <div className={`relative w-full overflow-hidden ${
+    p.title === "Octo-Underwater Defender" ? "h-52" : "h-40"
+  }`}
+>
               <Image
                 src={p.image ?? "/FinalProduct.webp"}
                 alt={`${p.title} preview`}
@@ -382,7 +396,7 @@ const Projects = () => (
               <h3 className="text-lg font-semibold text-slate-900">{p.title}</h3>
               <p className="mt-1 text-sm text-slate-600">{p.body}</p>
               <Link
-                href="/hermes-01"
+                href={p.href ?? "/hermes-01"}
                 className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sky-700 transition hover:text-sky-800"
               >
                 Project brief <ArrowUpRight className="h-4 w-4" />
@@ -394,6 +408,7 @@ const Projects = () => (
     </div>
   </section>
 );
+// ...existing code...
 
 const Team = () => (
   <section id="team" className="relative mt-24 py-20 lg:mt-28">
@@ -406,8 +421,29 @@ const Team = () => (
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {[
           {
-            name: "Narein, Founder",
-            role: "Modeling / Research",
+            name: "Soumil, Co-Founder & Lead Engineer", 
+            role: "Systems Integration / Mission Design",
+            projects: ["Octo-Underwater Defender"],
+            tasks: [
+              "Team Leadership",
+              "Outreach & Presentation",
+              "Software and hardware development",
+            ],
+          },
+          {
+            name: "Jiarui, Co-Founder & Software engineer",
+            role: "Avionics / Firmware",
+            projects: ["Hermes‑01"],
+            tasks: [
+              "CAD modeling",
+              "Blender modeling",
+              "Software and hardware development",
+            ],
+          },  
+          
+          {
+            name: "Narein, Hardware Engineer",
+            role: "Design / Research",
             projects: ["Hermes‑01"],
             tasks: [
               "CAD modeling",
@@ -416,23 +452,13 @@ const Team = () => (
             ],
           },
           {
-            name: "Jiarui, Founder",
-            role: "Avionics / Firmware",
-            projects: ["Hermes‑01"],
-            tasks: [
-              "CAD modeling",
-              "Blender modeling",
-              "Software and hardware development",
-            ],
-          },
-                    {
-            name: "Soumil, Co-Founder",
-            role: "To be decided",
+            name: "Kris, Data scientist ",
+            role: "Data Engineer",
             projects: ["To be decided"],
             tasks: [
               "To be decided",
             ],
-          },
+          },       
           {
             name: "Kurt",
             role: "Former Member",
@@ -451,14 +477,6 @@ const Team = () => (
               "Data review and analysis",
               "Psychological assistance",
               "Assembly quality assurance",
-            ],
-          },
-          {
-            name: "Kris",
-            role: "To be decided",
-            projects: ["To be decided"],
-            tasks: [
-              "To be decided",
             ],
           },
         ].map((m) => (
@@ -506,7 +524,7 @@ const Footer = () => (
           </div>
         </div>
       </div>
-      <div className="mt-0 text-xs text-slate-500">© {new Date().getFullYear()} Aerovision Dynamics. All rights reserved. Website by Jiarui Yu.</div>
+      <div className="mt-0 text-xs text-slate-500">© {new Date().getFullYear()} Aerovision Dynamics. All rights reserved. Website by Jiarui Yu & Soumil Vyas.</div>
     </div>
     <a href="#top" className="fixed bottom-5 right-5 grid h-10 w-10 place-items-center rounded-full bg-white shadow-lg ring-1 ring-slate-200 hover:bg-sky-50" aria-label="Back to top">
       ↑
