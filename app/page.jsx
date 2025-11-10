@@ -359,7 +359,7 @@ const Projects = () => (
       <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {[
           {
-            tag: "Research concept",
+            tag: "Research concept/prototype",
             title: "Hermes‑01",
             body: "A conceptual rocket used for delivering medical supplies to remote areas.",
             image: "/Poster.webp",
