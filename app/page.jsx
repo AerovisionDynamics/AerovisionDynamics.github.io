@@ -435,6 +435,7 @@ const Team = () => (
             role: "Avionics / Firmware",
             projects: ["Hermes‑01"],
             tasks: [
+              "Team Leadership",
               "CAD modeling",
               "Blender modeling",
               "Software and hardware development",
