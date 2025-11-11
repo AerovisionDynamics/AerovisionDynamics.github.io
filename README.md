@@ -1,1 +1,1 @@
-This is the official source code of the Aerovision Dynamics site.
+If you are seeing this, this website is probably under maintainance, or you're viewing the source code.
