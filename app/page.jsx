@@ -421,7 +421,7 @@ const Team = () => (
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {[
           {
-            name: "Soumil, Co-Founder & Lead Engineer", 
+            name: "Soumil Vyas, Co-Founder & Lead Engineer", 
             role: "Systems Integration / Mission Design",
             projects: ["Octo-Underwater Defender"],
             tasks: [
@@ -431,37 +431,39 @@ const Team = () => (
             ],
           },
           {
-            name: "Jiarui, Co-Founder & Software engineer",
+            name: "Jiarui Yu, Co-Founder & Software engineer",
             role: "Avionics / Firmware",
             projects: ["Hermes‑01"],
             tasks: [
               "Team Leadership",
-              "CAD modeling",
+              "Product testing",
               "Blender modeling",
               "Software and hardware development",
             ],
           },  
           
           {
-            name: "Narein, Hardware Engineer",
+            name: "Narein Balamurugan, Hardware Engineer",
             role: "Design / Research",
             projects: ["Hermes‑01"],
             tasks: [
               "CAD modeling",
-              "Customer research & interviews",
-              "Design documentation",
+              "Concept designing",
+              "Product assembly and testing",
             ],
           },
           {
-            name: "Kris, Data scientist ",
+            name: "Kris Liu, Data scientist ",
             role: "Data Engineer",
-            projects: ["To be decided"],
+            projects: ["Upcoming..."],
             tasks: [
-              "To be decided",
+              "Data collection",
+              "Data analysis",
+              "Product assembly testing",
             ],
           },       
           {
-            name: "Kurt",
+            name: "Kurt Christofolini",
             role: "Former Member",
             projects: ["Hermes‑01"],
             tasks: [
@@ -471,7 +473,7 @@ const Team = () => (
             ],
           },
           {
-            name: "Jelle",
+            name: "Jelle Struik",
             role: "Former Member",
             projects: ["Hermes-01"],
             tasks: [
