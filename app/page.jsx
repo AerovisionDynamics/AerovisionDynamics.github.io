@@ -247,7 +247,7 @@ const Awards = () => (
           {
             title: "Vakkanjers Explorer",
             year: 2025,
-            body: "Second place nationally, joined and recognized by former astronaut, André Kuipers. This contest was joined by almost 13000 students across the country.",
+            body: "Second place nationally, joined and recognised by former astronaut, André Kuipers. This contest was joined by almost 13000 students across the country.",
             imageSrc: "/IMG_0578.jpeg",
           },
         ].map((a) => (
