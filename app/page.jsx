@@ -459,7 +459,7 @@ const Team = () => (
             tasks: [
               "Data collection",
               "Data analysis",
-              "Product assembly testing",
+              "Product assembly and testing",
             ],
           },       
           {
