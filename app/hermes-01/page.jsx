@@ -19,7 +19,7 @@ const prototypeImage = {
 
 const astronautImage = {
   src: "/AndreKuipersSigningRocket.webp",
-  alt: "André Kuipers autographing the Hermes-01 rocket at Vakkanjers Explorer",
+  alt: "André Kuipers putting his autograph on the Hermes-01 rocket at Vakkanjers Explorer",
   width: 1600,
   height: 1200,
 };
@@ -72,7 +72,7 @@ export default function Hermes01Page() {
             Hermes-01 Project Brief
           </h1>
           <p className="max-w-3xl text-base leading-relaxed text-slate-600">
-            Hermes-01 is a humanitarian payload rocket concept that delivers urgent medicine to clinics cut off by conflict.
+            Hermes-01 is a humanitarian payload rocket concept that delivers urgent medicine to clinics cut off by conflicts or disasters.
             Open hardware, intelligent routing, and a rapid deployment workflow keep responders safe while expanding the reach of aid logistics.
           </p>
         </header>
