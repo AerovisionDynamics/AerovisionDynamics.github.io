@@ -443,7 +443,7 @@ const Team = () => (
           },  
           
           {
-            name: "Narein Balamurugan, Hardware Engineer",
+            name: "Narein Balamurugan, Co-Founder & Hardware Engineer",
             role: "Design / Research",
             projects: ["Hermes‑01"],
             tasks: [
@@ -453,7 +453,7 @@ const Team = () => (
             ],
           },
           {
-            name: "Kris Liu, Data scientist ",
+            name: "Kris Liu, Co-Founder & Data scientist ",
             role: "Data Engineer",
             projects: ["Upcoming..."],
             tasks: [
