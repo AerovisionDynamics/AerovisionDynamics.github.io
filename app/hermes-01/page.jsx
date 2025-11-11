@@ -192,7 +192,7 @@ export default function Hermes01Page() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
-              </div>
+              <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
                 <Image
                   src={simulationImage.src}
                   alt={simulationImage.alt}
