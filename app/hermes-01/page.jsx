@@ -31,13 +31,6 @@ const celebrationImage = {
   height: 1200,
 };
 
-const simulationImage = {
-  src: "/image.png",
-  alt: "Simulation that shows flight path of rocket. Made with Open Rocket program",
-  width: 1600,
-  height: 1200,
-};
-
 const stabilizationVideo = "https://www.youtube.com/embed/73m7qyHiIqs?rel=0";
 
 const Section = ({ title, children }) => (
@@ -191,18 +184,6 @@ export default function Hermes01Page() {
                   className="h-full w-full rounded-3xl"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
-                />
-              <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-                <Image
-                  src={simulationImage.src}
-                  alt={simulationImage.alt}
-                  width={simulationImage.width}
-                  height={simulationImage.height}
-                  className="w-full rounded-3xl"
-                  sizes="(min-width: 1024px) 60vw, 90vw"
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL={DEFAULT_BLUR_DATA_URL}
                 />
             </div>
           </Section>
