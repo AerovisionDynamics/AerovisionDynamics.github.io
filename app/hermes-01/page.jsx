@@ -186,7 +186,6 @@ export default function Hermes01Page() {
                   allowFullScreen
                 />
             </div>
-          </Section>
 
           <Section title="Human Centered Safeguards">
             <p>
