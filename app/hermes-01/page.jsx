@@ -185,7 +185,9 @@ export default function Hermes01Page() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
+              </div>
             </div>
+          </Section>
 
           <Section title="Human Centered Safeguards">
             <p>
