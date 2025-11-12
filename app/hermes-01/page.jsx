@@ -187,6 +187,23 @@ export default function Hermes01Page() {
                 />
               </div>
             </div>
+            <figure className="mt-6 space-y-3">
+              <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+                <Image
+                  src="/Simulation.webp"
+                  alt="Simulation render showing Hermes-01 flight profile"
+                  width={1600}
+                  height={768}
+                  className="w-full rounded-3xl"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={DEFAULT_BLUR_DATA_URL}
+                />
+              </div>
+              <figcaption className="text-xs uppercase tracking-widest text-slate-400">
+                Simulation output used to tune fin actuation envelopes
+              </figcaption>
+            </figure>
           </Section>
 
           <Section title="Human Centered Safeguards">
