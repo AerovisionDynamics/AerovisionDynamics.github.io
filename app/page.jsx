@@ -468,12 +468,21 @@ const Team = () => (
             name: "Kurt Christofolini",
             role: "Former Member",
             projects: ["Hermes‑01"],
+            tasks: [
+              "Free fall simulations",
+              "Parachute design & selection",
+              "Recovery system integration",
+            ],
           },
           {
             name: "Jelle Struik",
             role: "Former Member",
             projects: ["Hermes-01"],
-        
+            tasks: [
+              "Data review and analysis",
+              "Psychological assistance",
+              "Assembly quality assurance",
+            ],
           },
         ].map((m) => (
           <Card key={m.name} className="p-6">
