@@ -162,7 +162,7 @@ const Hero = () => (
         </Card>
         <div className="mt-4 grid grid-cols-3 gap-3 text-center">
           {[
-            { label: "Members", value: "6" },
+            { label: "Members", value: "4" },
             { label: "Projects", value: "2" },
             { label: "Founded", value: "2024" },
           ].map((s) => (
@@ -421,21 +421,23 @@ const Team = () => (
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {[
           {
-            name: "Soumil Vyas, Co-Founder & Lead Engineer", 
+            name: "Soumil Vyas, Co-Founder & Team Leader", 
             role: "Systems Integration / Mission Design",
             projects: ["Octo-Underwater Defender"],
             tasks: [
               "Team Leadership",
+              "Project Management",
               "Outreach & Presentation",
               "Software and hardware development",
+            
             ],
           },
           {
-            name: "Jiarui Yu, Co-Founder & Software engineer",
+            name: "Jiarui Yu, Co-Founder & Lead Engineer",
             role: "Avionics / Firmware",
             projects: ["Hermes‑01"],
             tasks: [
-              "Team Leadership",
+              "Task Oversight",
               "Product testing",
               "Blender modeling",
               "Software and hardware development",
@@ -453,12 +455,12 @@ const Team = () => (
             ],
           },
           {
-            name: "Kris Liu, Co-Founder & Data scientist ",
-            role: "Data Engineer",
+            name: "Kris Liu, Co-Founder & Software Engineer ",
+            role: " Software Engineer",
             projects: ["Upcoming..."],
             tasks: [
               "Data collection",
-              "Data analysis",
+              "Software development",
               "Product assembly and testing",
             ],
           },       
@@ -466,21 +468,12 @@ const Team = () => (
             name: "Kurt Christofolini",
             role: "Former Member",
             projects: ["Hermes‑01"],
-            tasks: [
-              "Free fall simulations",
-              "Parachute design & selection",
-              "Recovery system integration",
-            ],
           },
           {
             name: "Jelle Struik",
             role: "Former Member",
             projects: ["Hermes-01"],
-            tasks: [
-              "Data review and analysis",
-              "Psychological assistance",
-              "Assembly quality assurance",
-            ],
+        
           },
         ].map((m) => (
           <Card key={m.name} className="p-6">
