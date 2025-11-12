@@ -451,6 +451,7 @@ const Team = () => (
             tasks: [
               "CAD modeling",
               "Concept designing",
+              "Documentation",
               "Product assembly and testing",
             ],
           },
@@ -461,6 +462,7 @@ const Team = () => (
             tasks: [
               "Data collection",
               "Software development",
+              "Documentation",
               "Product assembly and testing",
             ],
           },       
