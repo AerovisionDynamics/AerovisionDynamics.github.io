@@ -358,7 +358,7 @@ const projectCards = [
     imageHeight: "h-52",
   },
   {
-    tag: "Research concept",
+    tag: "Research concept/prototype",
     title: "Octo-Underwater Defender",
     body: "An autonomous underwater vehicle prototype for monitoring and protecting submarine cables, using satellite communication and integrated sensors.",
     image: "/Octodefender.webp",
@@ -404,7 +404,7 @@ const Projects = () => (
           </Card>
         ))}
       </div>
-      <p className="mt-6 text-xs uppercase tracking-wide text-slate-400">Image created by Jiarui Yu</p>
+      <p className="mt-6 text-xs uppercase tracking-wide text-slate-400">Imagined, not stolen</p>
     </div>
   </section>
 );
@@ -520,7 +520,7 @@ const Footer = () => (
           <div className="mt-9 space-y-2 text-sm text-slate-600">
             <div>
               <span className="font-semibold text-slate-800">Contact us:</span>{" "}
-              <a href="mailto:8963@leerling.keizerkarelcollege.nl" className="hover:text-sky-700">8963@leerling.keizerkarelcollege.nl</a>
+              <a href="mailto:8963@leerling.keizerkarelcollege.nl" className="hover:text-sky-700">aerovisondynamics@gmail.com</a>
             </div>
             <div>
               <span className="font-semibold text-slate-800">Address:</span>{" "}

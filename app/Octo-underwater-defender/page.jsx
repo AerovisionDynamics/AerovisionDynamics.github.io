@@ -50,7 +50,7 @@ export default function OctoUnderwaterDefenderPage() {
 
         <header className="mt-10 space-y-4 text-slate-900">
           <span className="inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-700">
-            Research concept
+            Research concept/prototype
           </span>
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Octo-Underwater Defender Project Brief
