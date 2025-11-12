@@ -404,7 +404,7 @@ const Projects = () => (
           </Card>
         ))}
       </div>
-      <p className="mt-6 text-xs uppercase tracking-wide text-slate-400">Imagined, not stolen</p>
+      <p className="mt-6 text-xs uppercase tracking-wide text-slate-400">Images By Aerovision Dynamics </p>
     </div>
   </section>
 );
@@ -426,7 +426,7 @@ const Team = () => (
             projects: ["Octo-Underwater Defender"],
             tasks: [
               "Team Leadership",
-              "Project Management",
+              "Mechanical & Electrical Integration",
               "Outreach & Presentation",
               "Software and hardware development",
             
