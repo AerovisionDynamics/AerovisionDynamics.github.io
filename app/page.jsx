@@ -522,7 +522,7 @@ const Footer = () => (
           <div className="mt-9 space-y-2 text-sm text-slate-600">
             <div>
               <span className="font-semibold text-slate-800">Contact us:</span>{" "}
-              <a href="mailto:8963@leerling.keizerkarelcollege.nl" className="hover:text-sky-700">aerovisondynamics@gmail.com</a>
+              <a href="mailto:aerovisondynamics@gmail.com" className="hover:text-sky-700">aerovisondynamics@gmail.com</a>
             </div>
             <div>
               <span className="font-semibold text-slate-800">Address:</span>{" "}
