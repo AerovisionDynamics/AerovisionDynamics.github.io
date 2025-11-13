@@ -530,7 +530,7 @@ const Footer = () => (
           </div>
         </div>
       </div>
-      <div className="mt-0 text-xs text-slate-500">© {new Date().getFullYear()} Aerovision Dynamics. All rights reserved. Website created by Jiarui Yu. Maintained by Jiarui Yu, Soumil Vyas, and Narein Balamurugan.</div>
+      <div className="mt-0 text-xs text-slate-500">© {new Date().getFullYear()} Aerovision Dynamics. All rights reserved. Website maintained by Jiarui Yu, Soumil Vyas, and Narein Balamurugan.</div>
     </div>
     <a href="#top" className="fixed bottom-5 right-5 grid h-10 w-10 place-items-center rounded-full bg-white shadow-lg ring-1 ring-slate-200 hover:bg-sky-50" aria-label="Back to top">
       ↑
