@@ -404,7 +404,7 @@ const Projects = () => (
           </Card>
         ))}
       </div>
-      <p className="mt-6 text-xs uppercase tracking-wide text-slate-400">Images By Aerovision Dynamics </p>
+      <p className="mt-6 text-xs uppercase tracking-wide text-slate-400">Images By Jiarui Yu </p>
     </div>
   </section>
 );
@@ -420,18 +420,6 @@ const Team = () => (
       />
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {[
-          {
-            name: "Soumil Vyas, Co-Founder & Team Leader", 
-            role: "Systems Integration / Mission Design",
-            projects: ["Octo-Underwater Defender"],
-            tasks: [
-              "Team Leadership",
-              "Mechanical & Electrical Integration",
-              "Outreach & Presentation",
-              "Software and hardware development",
-            
-            ],
-          },
           {
             name: "Jiarui Yu, Co-Founder & Lead Engineer",
             role: "Avionics / Firmware",
@@ -453,6 +441,18 @@ const Team = () => (
               "Concept designing",
               "Documentation",
               "Product assembly and testing",
+            ],
+          },
+                    {
+            name: "Soumil Vyas, CEO & Team Leader", 
+            role: "Systems Integration / Mission Design",
+            projects: ["Octo-Underwater Defender"],
+            tasks: [
+              "Team Leadership",
+              "Mechanical & Electrical Integration",
+              "Outreach & Presentation",
+              "Software and hardware development",
+            
             ],
           },
           {
@@ -531,7 +531,7 @@ const Footer = () => (
           </div>
         </div>
       </div>
-      <div className="mt-0 text-xs text-slate-500">© {new Date().getFullYear()} Aerovision Dynamics. All rights reserved. Website by Jiarui Yu & Soumil Vyas.</div>
+      <div className="mt-0 text-xs text-slate-500">© {new Date().getFullYear()} Aerovision Dynamics. All rights reserved. Website created by Jiarui Yu. Maintained by Jiarui Yu, Soumil Vyas, and Narein Balamurugan.</div>
     </div>
     <a href="#top" className="fixed bottom-5 right-5 grid h-10 w-10 place-items-center rounded-full bg-white shadow-lg ring-1 ring-slate-200 hover:bg-sky-50" aria-label="Back to top">
       ↑
