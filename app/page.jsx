@@ -421,8 +421,8 @@ const Team = () => (
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {[
           {
-            name: "Jiarui Yu, Co-Founder & Lead Engineer",
-            role: "Avionics / Firmware",
+            name: "Jiarui Yu, Lead Engineer",
+            role: "Software / Hardware lead",
             projects: ["Hermes‑01"],
             tasks: [
               "Task Oversight",
@@ -431,21 +431,9 @@ const Team = () => (
               "Software and hardware development",
             ],
           },  
-          
           {
-            name: "Narein Balamurugan, Co-Founder & Hardware Engineer",
-            role: "Design / Research",
-            projects: ["Hermes‑01"],
-            tasks: [
-              "CAD modeling",
-              "Concept designing",
-              "Documentation",
-              "Product assembly and testing",
-            ],
-          },
-                    {
-            name: "Soumil Vyas, CEO & Team Leader", 
-            role: "Systems Integration / Mission Design",
+            name: "Soumil Vyas, Team Leader", 
+            role: "Team organisation / lead",
             projects: ["Octo-Underwater Defender"],
             tasks: [
               "Team Leadership",
@@ -456,7 +444,18 @@ const Team = () => (
             ],
           },
           {
-            name: "Kris Liu, Co-Founder & Software Engineer ",
+            name: "Narein Balamurugan, Hardware Engineer",
+            role: "Design / Research",
+            projects: ["Hermes‑01"],
+            tasks: [
+              "CAD modeling",
+              "Concept designing",
+              "Documentation",
+              "Product assembly and testing",
+            ],
+          },
+          {
+            name: "Kris Liu, Software Engineer ",
             role: " Software Engineer",
             projects: ["Upcoming..."],
             tasks: [
