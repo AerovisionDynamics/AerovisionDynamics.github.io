@@ -444,7 +444,7 @@ const Team = () => (
             ],
           },
           {
-            name: "Narein Balamurugan, Hardware Engineer",
+            name: "Narein Balamurugan, Project Architect & Engineer",
             role: "Design / Research",
             projects: ["Hermes‑01"],
             tasks: [
