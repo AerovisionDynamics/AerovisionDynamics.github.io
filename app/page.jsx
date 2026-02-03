@@ -446,11 +446,11 @@ export default function AerovisionDynamicsSchoolHome() {
     <main id="top" className="min-h-screen bg-white text-slate-900">
       <Header />
       <Hero />
+      <Projects />
       <About />
       <Labs />
       <Awards />
       <Appraisals />
-      <Projects />
       <Footer />
     </main>
   );

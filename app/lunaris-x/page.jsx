@@ -19,7 +19,7 @@ const DEFAULT_BLUR_DATA_URL =
 export const metadata = {
   title: "Lunaris‑X | Aerovision Dynamics",
   description:
-    "Lunaris‑X CanSat — technical highlights, subsystem specs, and the competitive edge over the ESA/ESERO reference kit.",
+    "Lunaris‑X CanSat",
 };
 
 const stats = [
@@ -126,6 +126,41 @@ const gallery = [
   },
 ];
 
+const socialReel = {
+  title: "Lunaris-X Instagram reel",
+  src: "/IGREEL.mp4",
+  poster: "/newvid.png",
+  href: "https://www.instagram.com/p/DUAtgznAujM/",
+};
+
+const socialPosts = [
+  {
+    title: "Lunaris-X Instagram post image 1",
+    src: "/IGpost1.jpeg",
+    href: "https://www.instagram.com/p/DUTU-tgjNdY/?img_index=1",
+  },
+  {
+    title: "Lunaris-X Instagram post image 2",
+    src: "/IGpost2.jpeg",
+    href: "https://www.instagram.com/p/DUTU-tgjNdY/?img_index=2",
+  },
+  {
+    title: "Lunaris-X Instagram post image 3",
+    src: "/IGpost3.jpg",
+    href: "https://www.instagram.com/p/DUTU-tgjNdY/?img_index=3",
+  },
+  {
+    title: "Lunaris-X Instagram post image 4",
+    src: "/IGpost4.jpg",
+    href: "https://www.instagram.com/p/DUTU-tgjNdY/?img_index=4",
+  },
+  {
+    title: "Lunaris-X Instagram post image 5",
+    src: "/IGpost5.jpg",
+    href: "https://www.instagram.com/p/DUTU-tgjNdY/?img_index=5",
+  },
+];
+
 export default function LunarisXPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-50">
@@ -158,7 +193,7 @@ export default function LunarisXPage() {
                   Technical deck
                 </div>
                 <h1 className="font-moderniz text-4xl leading-[1.05] text-white sm:text-5xl lg:text-6xl">
-                  Lunaris-X CanSat — Technical Highlights & Competitive Edge
+                  Lunaris-X CanSat
                 </h1>
                 <p className="max-w-2xl text-lg text-slate-200/85">
                   Ballasted-to-spec CanSat (≥300 g) that delivers laboratory-grade telemetry, exceeds ESA reliability guidelines, and serves as a platform future student teams can build on—thanks to overpowered power rails, light structure, and rechargeable, eco-friendly operation.
@@ -220,10 +255,10 @@ export default function LunarisXPage() {
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm uppercase tracking-[0.25em] text-cyan-200">
-                  Visual placeholders
+                  Our final product
                 </p>
                 <h3 className="font-moderniz text-3xl text-white">
-                  Renders while the full visual pack lands.
+                  Renders while the full CanSat lands.
                 </h3>
               </div>
               <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-amber-100">
@@ -257,6 +292,100 @@ export default function LunarisXPage() {
                   </div>
                 </figure>
               ))}
+            </div>
+          </section>
+
+          <section className="mt-8 space-y-4">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm uppercase tracking-[0.25em] text-cyan-200">
+                  From Instagram
+                </p>
+                <h3 className="font-moderniz text-3xl text-white">
+                  Our socials
+                </h3>
+              </div>
+              <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-amber-100">
+                Social
+              </span>
+            </div>
+            <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
+              <a
+                href={socialReel.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur transition hover:border-cyan-200/30"
+              >
+                <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-slate-950/40" />
+                <div className="relative aspect-square w-full">
+                  <Image
+                    src={socialReel.poster}
+                    alt={socialReel.title}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    placeholder="blur"
+                    blurDataURL={DEFAULT_BLUR_DATA_URL}
+                    className="object-cover transition duration-300 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 grid place-items-center">
+                    <div className="grid h-14 w-14 place-items-center rounded-full border border-white/30 bg-slate-950/60 text-white shadow-lg backdrop-blur">
+                      ▶
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-xs text-slate-200 backdrop-blur">
+                  <span className="inline-flex items-center gap-2">
+                    <Sparkles className="h-4 w-4 text-amber-200" />
+                    Reel highlight
+                  </span>
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-cyan-100">
+                    Watch on IG
+                  </span>
+                </div>
+              </a>
+
+              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-slate-950/50" />
+                <div className="relative">
+                  <div className="flex snap-x snap-mandatory gap-0 overflow-x-auto scroll-smooth touch-pan-x overscroll-x-contain">
+                    {socialPosts.map((post) => (
+                      <a
+                        key={post.title}
+                        href={post.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="relative min-w-full snap-center"
+                      >
+                        <div className="relative aspect-square w-full">
+                          <Image
+                            src={post.src}
+                            alt={post.title}
+                            fill
+                            sizes="(min-width: 1024px) 50vw, 100vw"
+                            placeholder="blur"
+                            blurDataURL={DEFAULT_BLUR_DATA_URL}
+                            className="object-cover"
+                          />
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                <div className="pointer-events-none absolute inset-x-4 bottom-4 flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-xs text-slate-200 backdrop-blur">
+                  <span className="inline-flex items-center gap-2">
+                    <Sparkles className="h-4 w-4 text-amber-200" />
+                    IG post carousel
+                  </span>
+                  <a
+                    href={socialPosts[0].href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="pointer-events-auto rounded-full bg-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-cyan-100 transition hover:bg-white/20"
+                  >
+                    View on IG
+                  </a>
+                </div>
+              </div>
             </div>
           </section>
 
