@@ -24,14 +24,14 @@ export const metadata = {
 
 const stats = [
   {
-    label: "Mass (ballasted)",
-    value: "≥300 g",
-    detail: "CF-reinforced PET-G shell + custom PCB, ballasted to the 300 g ESA minimum with margin.",
+    label: "Mass",
+    value: "<300 g",
+    detail: "CF-reinforced PET-G shell + custom PCB, enough space and weight for complex mechanisms. Must be ballasted to spec (300-350g)",
   },
   {
     label: "Avionics",
     value: "ESP32 @ 240 MHz",
-    detail: "Dual-core 32-bit MCU with Wi‑Fi/BLE and 520 kB SRAM, MicroPython firmware.",
+    detail: "Dual-core 32-bit MCU with Wi‑Fi/BLE and 520 kB SRAM, MicroPython firmware. Instant prototyping",
   },
   {
     label: "Sensing cadence",
@@ -54,19 +54,19 @@ const subsystemHighlights = [
   },
   {
     subsystem: "Primary-mission sensing",
-    spec: "Bosch BMP280 barometric/temp sensor, sampled at 10 Hz",
+    spec: "High efficiency BMP280 barometric/temp sensor. Calibrated for precision.",
     advantage:
-      "10× the 1 Hz telemetry rule, giving smoother pressure-derived altitude traces than baseline kit logging.",
+      "Allows for estimation of altitude with precision.",
   },
   {
     subsystem: "Attitude & motion",
     spec: "9-axis IMU (accelerometer + gyro + magnetometer) sampled at ≥60 Hz",
     advantage:
-      "60× the minimum 1 Hz telemetry requirement; captures fine vibrations and exports Euler angles for Blender-based 3-D trajectory reconstruction and aero analysis.",
+      "60× the minimum 1 Hz telemetry requirement. Recieves all data necessary to reconstruct the orientation with a visual flight path",
   },
   {
     subsystem: "Power architecture",
-    spec: "2000 mAh+ Li-Po (expandable) + high-efficiency buck/boost regulator (1 A shared on 5 V & 3.3 V rails)",
+    spec: "2000 mAh+ Li-Po (expandable) + high-efficiency switching regulator (1 A shared on 5 V & 3.3 V rails)",
     advantage:
       "Rechargeable design eliminates disposable 9 V blocks (cuts e-waste) and massively increases current headroom (Arduino Uno limit 50 mA on 3.3 V); supports power-hungry upgrades such as LTE/5G radios or cameras without redesign.",
   },
@@ -74,17 +74,17 @@ const subsystemHighlights = [
     subsystem: "Mass & structure",
     spec: "Carbon-fibre-reinforced PET-G airframe, custom PCB; ballasted to ≥300 g",
     advantage:
-      "Rugged CF-PET-G shell keeps the stack light; ballast is added to hit ESA’s ≥300 g minimum and optimise CG/stability without overstressing the airframe.",
+      "Rugged CF-PET-G shell keeps the stack light. Ballast is added to hit ESA’s ≥300 g minimum and optimise CG/stability without overstressing the airframe.",
   },
   {
     subsystem: "Data integrity",
     spec: "Live 433 MHz radio down-link (primary) + mirrored logging to flash & Micro-SD (backup)",
     advantage:
-      "Radio link remains the primary log path; mirrored flash/SD provides recovery if the signal is interrupted or the CanSat is lost.",
+      "Radio remains the primary way to communicate. Micro SD allows us to capture data during launch when the CanSat's radio waves are shielded by the metal rocket body.",
   },
   {
     subsystem: "Software stack",
-    spec: "MicroPython on bare metal ESP-IDF",
+    spec: "MicroPython",
     advantage:
       "Instant REPL debugging and no compile cycle accelerate iteration and lower barriers for future student teams.",
   },
@@ -97,9 +97,8 @@ const subsystemHighlights = [
 ];
 
 const reasons = [
-  "Second-generation architecture – departs from the Arduino-centric starter kit, leveraging a modern 32-bit SoC, custom PCB and high-rate sensors.",
-  "Professional-grade data quality – 60 Hz inertial logging plus high-resolution pressure sensing enable flight-dynamics analyses usually reserved for CubeSats.",
-  "Sustainability by design – rechargeable Li-Po, reusable airframe, in-print ballast and minimal wiring reduce consumables and waste.",
+  "Next-generation architecture – departs from the Arduino-centric starter kit, leveraging a modern 32-bit Soc and custom PCB",
+  "Sustainability by design – rechargeable Li-Po, reusable airframe and minimal wiring reduce consumables and waste while increasing reliability.",
   "Platform-ready for future CanSats – over-specced 1 A rails, spare GPIOs, native Wi‑Fi/BLE and MicroPython let new teams bolt on cameras, GNSS-RTK or cellular links without touching the hardware.",
   "Robust telemetry and logging – 433 MHz radio downlink as primary path, mirrored to flash/SD for data survival even if the signal drops.",
 ];
@@ -196,7 +195,7 @@ export default function LunarisXPage() {
                   Lunaris-X CanSat
                 </h1>
                 <p className="max-w-2xl text-lg text-slate-200/85">
-                  Ballasted-to-spec CanSat (≥300 g) that delivers laboratory-grade telemetry, exceeds ESA reliability guidelines, and serves as a platform future student teams can build on—thanks to overpowered power rails, light structure, and rechargeable, eco-friendly operation.
+                  The next generation CanSat. Overbuilt from the ground up, maximum power with better efficiency.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {stats.map((item) => (
@@ -429,10 +428,10 @@ export default function LunarisXPage() {
             <div className="relative grid gap-6 lg:grid-cols-[1fr,0.75fr] lg:items-center">
               <div className="space-y-4">
                 <p className="text-sm uppercase tracking-[0.25em] text-cyan-100">
-                  Why Lunaris-X is ahead 🔭
+                  Why Lunaris-X is ahead
                 </p>
                 <h4 className="font-moderniz text-3xl text-white">
-                  Front-runner platform for the 2025–26 ESERO CanSat competition
+                  Overbuilt platform for future CanSats.
                 </h4>
                 <ul className="space-y-3 text-slate-200/90">
                   {reasons.map((reason) => (
@@ -446,7 +445,7 @@ export default function LunarisXPage() {
               <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-white/10 p-5 text-sm text-slate-100 shadow-inner">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5" />
                 <p className="relative">
-                  Net result: a ballasted (≥300 g) CanSat platform that delivers laboratory-grade telemetry, exceeds ESA reliability guidelines, stays eco-friendly via rechargeables, and keeps payload headroom for experimental missions while mirroring radio logs to onboard storage for resilience.
+                  Net result: A highly reliable, overbuilt and modern platform for future CanSats.
                 </p>
               </div>
             </div>
