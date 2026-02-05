@@ -163,6 +163,15 @@ const socialPosts = [
 export default function LunarisXPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-50">
+      <Link
+        href="/lunaris-x/disclaimer"
+        className="relative z-20 block w-full bg-red-600 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-red-500 sm:text-base"
+      >
+        <span className="font-semibold">
+          We are not affiliated with the team called “Lunaris-X”.
+        </span>{" "}
+        <span className="text-white/90">Click for more information.</span>
+      </Link>
       <div className="cosmic-gradient absolute inset-0" />
       <div className="absolute left-1/2 top-16 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-cyan-400/10 blur-3xl" />
       <div className="absolute right-14 top-64 h-72 w-72 rounded-full bg-amber-300/12 blur-3xl" />
