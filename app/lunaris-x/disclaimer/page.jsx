@@ -51,11 +51,11 @@ export default function LunarisXDisclaimerPage() {
           </p>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-3">
-              <div className="text-sm font-semibold text-slate-700">Unofficial</div>
+              <div className="text-sm font-semibold text-slate-700">Official</div>
               <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
                 <Image
-                  src="/Fake.png"
-                  alt="Fake Lunaris-X page with unapproved logo and mismatched font"
+                  src="/Real.png"
+                  alt="Official Lunaris-X page with approved logo and correct branding"
                   width={1200}
                   height={800}
                   className="h-auto w-full"
@@ -63,11 +63,11 @@ export default function LunarisXDisclaimerPage() {
               </div>
             </div>
             <div className="space-y-3">
-              <div className="text-sm font-semibold text-slate-700">Official</div>
+              <div className="text-sm font-semibold text-slate-700">Unofficial</div>
               <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
                 <Image
-                  src="/Real.png"
-                  alt="Official Lunaris-X page with approved logo and correct branding"
+                  src="/Fake.png"
+                  alt="Fake Lunaris-X page with unapproved logo and mismatched font"
                   width={1200}
                   height={800}
                   className="h-auto w-full"
