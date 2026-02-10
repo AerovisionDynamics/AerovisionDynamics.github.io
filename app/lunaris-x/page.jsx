@@ -165,7 +165,7 @@ export default function LunarisXPage() {
     <main className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-50">
       <Link
         href="/lunaris-x/disclaimer"
-        className="relative z-20 block w-full bg-red-600 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-red-500 sm:text-base"
+        className="relative z-20 hidden w-full bg-red-600 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-red-500 sm:text-base"
       >
         <span className="font-semibold">
           We are not affiliated with the team called “Lunaris-X”.
