@@ -1,37 +1,47 @@
-"use client";
-
-import { useEffect, useMemo, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Orbit, Sparkles } from "lucide-react";
+import Image from "next/image";
+import {
+  Activity,
+  ArrowLeft,
+  Gauge,
+  Orbit,
+  Radar,
+  Satellite,
+  ShieldCheck,
+  Sparkles,
+  SunMedium,
+  Waves,
+} from "lucide-react";
 
 const DEFAULT_BLUR_DATA_URL =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNFMEY3RkYiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9zdmc+";
 
+export const metadata = {
+  title: "Lunaris‑X | Aerovision Dynamics",
+  description:
+    "Lunaris‑X CanSat",
+};
+
 const stats = [
   {
-    label: "Reliability",
-    value: "Custom PCB",
-    detail:
-      "Custom designed circuit board with carefully soldered joints using the Nan Ya NP-140F as material with 0.05-0.10% moisture absorption. Extremely resistant against forces and vibrations.",
+    label: "Mass",
+    value: "<300 g",
+    detail: "CF-reinforced PET-G shell + custom PCB, enough space and weight for complex mechanisms. Must be ballasted to spec (300-350g)",
   },
   {
-    label: "Airframe",
-    value: "Reinforced Airframe",
-    detail:
-      "Airframe designed with thick layer walls. Outer layers are designed with pure durability in mind, unused space internally is filled with impact absorbing infill.",
+    label: "Avionics",
+    value: "ESP32 @ 240 MHz",
+    detail: "Dual-core 32-bit MCU with Wi‑Fi/BLE and 520 kB SRAM, MicroPython firmware. Instant prototyping",
   },
   {
-    label: "Proven durability",
-    value: "Advanced stress testing methods",
-    detail:
-      "Vibration and G-force tests simultaneously performed by our custom test vehicle. Other tests include shock loads and drop tests.",
+    label: "Sensing cadence",
+    value: "10 Hz baro / 60 Hz IMU",
+    detail: "High-resolution pressure + 9-axis IMU for smooth altitude and attitude reconstruction.",
   },
   {
-    label: "Built, not bought",
-    value: "Custom designed 8.8dbi Yagi antenna",
-    detail:
-      "The ground station features this custom purpose-built antenna, proven to reliably recieve signals from the quarter wave antenna up to 1km under heavy vibrations.",
+    label: "Power budget",
+    value: "1 A regulated rails",
+    detail: "2000 mAh+ Li-Po (expandable) with buck/boost; over-specced current delivery for future payloads without redesign.",
   },
 ];
 
@@ -45,7 +55,8 @@ const subsystemHighlights = [
   {
     subsystem: "Primary-mission sensing",
     spec: "High efficiency BMP280 barometric/temp sensor. Calibrated for precision.",
-    advantage: "Allows for estimation of altitude with precision.",
+    advantage:
+      "Allows for estimation of altitude with precision.",
   },
   {
     subsystem: "Attitude & motion",
@@ -149,169 +160,39 @@ const socialPosts = [
   },
 ];
 
-export default function LunarisXNewPage() {
-  const lines = useMemo(
-    () => [
-      "➜ boot sequence: OK",
-      "→ Welcome, user.",
-      "→ Mission: Build a satellite.",
-      "→ Aerovision Dynamics online.",
-      "→ Challenge accepted.",
-    ],
-    []
-  );
-
-  const [typedCount, setTypedCount] = useState(0);
-  const [caretOn, setCaretOn] = useState(true);
-  const [hidden, setHidden] = useState(false);
-
-  const fullText = useMemo(() => lines.join("\n"), [lines]);
-
-  const [stars, setStars] = useState([]);
-
-  // Starfield (generated after mount to avoid SSR hydration mismatch)
-  useEffect(() => {
-    const count = 90;
-    const generated = Array.from({ length: count }).map((_, i) => {
-      const size = Math.random() < 0.85 ? 1 : 2;
-      return {
-        id: i,
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-        size,
-        opacity: 0.25 + Math.random() * 0.65,
-        twinkleDur: 1.6 + Math.random() * 3.2,
-        driftDur: 18 + Math.random() * 32,
-        delay: Math.random() * 4,
-      };
-    });
-    setStars(generated);
-  }, []);
-
-  useEffect(() => {
-    const totalDurationMs = 3000;
-    const totalChars = fullText.length;
-    const intervalMs = Math.max(
-      20,
-      Math.floor(totalDurationMs / Math.max(1, totalChars))
-    );
-    let index = 0;
-
-    const typer = setInterval(() => {
-      index += 1;
-      setTypedCount(index);
-      if (index >= totalChars) clearInterval(typer);
-    }, intervalMs);
-
-    const caret = setInterval(() => setCaretOn((p) => !p), 450);
-
-    const fade = setTimeout(() => setHidden(true), totalDurationMs);
-
-    return () => {
-      clearInterval(typer);
-      clearInterval(caret);
-      clearTimeout(fade);
-    };
-  }, [fullText]);
-
+export default function LunarisXPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06)_0%,rgba(0,0,0,0.9)_70%)]" />
-
-        <div className="absolute inset-0">
-          {stars.map((s) => (
-            <span
-              key={s.id}
-              className="absolute rounded-full bg-white"
-              style={{
-                left: `${s.left}%`,
-                top: `${s.top}%`,
-                width: `${s.size}px`,
-                height: `${s.size}px`,
-                opacity: s.opacity,
-                animation: `lx-twinkle ${s.twinkleDur}s ease-in-out ${s.delay}s infinite alternate, lx-drift ${s.driftDur}s linear ${s.delay}s infinite`,
-                filter:
-                  s.size === 2
-                    ? "drop-shadow(0 0 6px rgba(255,255,255,0.35))"
-                    : "none",
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div
-        className={`pointer-events-none fixed inset-0 z-20 flex items-center justify-center transition-opacity duration-1000 ease-in-out will-change-[opacity] ${
-          hidden ? "opacity-0" : "opacity-100"
-        }`}
+    <main className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-50">
+      <Link
+        href="/lunaris-x/disclaimer"
+        className="relative z-20 hidden w-full bg-red-600 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-red-500 sm:text-base"
       >
-        <div className="mx-auto flex max-w-5xl flex-col items-center justify-center px-6 text-center">
-          <h1 className="font-moderniz text-4xl font-semibold tracking-tight text-white animate-[lx-text-glow_3.6s_ease-in-out_infinite] sm:text-6xl lg:text-7xl">
-            Lunaris-X
-          </h1>
-          <p className="font-moderniz mt-4 text-base font-medium text-slate-300 sm:text-lg">
-            By team Aerovision Dynamics
-          </p>
+        <span className="font-semibold">
+          We are not affiliated with the team called “Lunaris-X”.
+        </span>{" "}
+        <span className="text-white/90">Click for more information.</span>
+      </Link>
+      <div className="cosmic-gradient absolute inset-0" />
+      <div className="absolute left-1/2 top-16 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-cyan-400/10 blur-3xl" />
+      <div className="absolute right-14 top-64 h-72 w-72 rounded-full bg-amber-300/12 blur-3xl" />
 
-          <div className="mt-6 w-full max-w-xl rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-left text-sm text-slate-200 shadow-[0_0_40px_rgba(255,255,255,0.08)]">
-            <pre
-              className="whitespace-pre-wrap"
-              style={{
-                fontFamily:
-                  "SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace",
-              }}
+      <div className="relative z-10">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
+          <div className="flex items-center gap-3">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-slate-50 transition hover:border-white/30 hover:bg-white/15"
             >
-              {fullText.slice(0, typedCount)}
-              {caretOn && typedCount < fullText.length ? "█" : ""}
-            </pre>
+              <ArrowLeft className="h-4 w-4" />
+              Back to home
+            </Link>
+            <div className="flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-200">
+              <Sparkles className="h-3 w-3 text-amber-200" />
+              Placeholder sprint
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div
-        className={`relative z-10 transition-opacity duration-1000 ease-in-out ${
-          hidden ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-      >
-        <div className="mx-auto flex max-w-6xl flex-col gap-16 px-6 py-16 sm:py-20">
-          <section className="flex flex-col gap-10">
-            <div className="flex flex-wrap items-center gap-3">
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-slate-50 transition hover:border-white/30 hover:bg-white/15"
-              >
-                <ArrowLeft className="h-4 w-4" />
-                Back to home
-              </Link>
-              <div className="flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-200">
-                <Sparkles className="h-3 w-3 text-amber-200" />
-                Placeholder sprint
-              </div>
-            </div>
-
-            <div className="relative flex w-full items-center justify-center">
-              <div
-                className="pointer-events-none absolute inset-0 flex items-center justify-center"
-                style={{ transform: "translateY(-30%)" }}
-              >
-                <span className="mx-auto text-center font-moderniz text-3xl uppercase tracking-[0.3em] text-white animate-[lx-text-glow_3.6s_ease-in-out_infinite] sm:text-4xl lg:text-5xl">
-                  Introducing lunaris-x
-                </span>
-              </div>
-              <Image
-                src="/PCB.webp"
-                alt="Lunaris-X PCB render"
-                width={1600}
-                height={900}
-                className="relative h-auto w-full max-w-4xl object-cover drop-shadow-[0_35px_120px_rgba(0,0,0,0.75)]"
-                priority
-              />
-            </div>
-          </section>
-
-          <section className="grid items-start gap-8 lg:grid-cols-[1.05fr,0.95fr]">
+          <section className="mt-10 grid items-start gap-8 lg:grid-cols-[1.05fr,0.95fr]">
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur">
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5" />
               <div className="relative space-y-6">
@@ -319,17 +200,12 @@ export default function LunarisXNewPage() {
                   <Orbit className="h-4 w-4" />
                   Technical deck
                 </div>
-                <h2 className="font-moderniz text-4xl leading-[1.05] text-white sm:text-5xl lg:text-6xl">
+                <h1 className="font-moderniz text-4xl leading-[1.05] text-white sm:text-5xl lg:text-6xl">
                   Lunaris-X CanSat
-                </h2>
-                <div className="max-w-2xl space-y-3 text-lg text-slate-200/85">
-                  <p>
-                    Primary mission: Use the BMP280 sensor to measure temperature and air pressure. Air pressure can be calculated to accurately determine altitude.
-                  </p>
-                  <p>
-                    Secondary mission: Use a custom Python script to convert raw data into keyframes, then apply a machine‑learning LLM algorithm to smooth out imperfections and fine‑tune the data as an additional calibration step after receiving it.
-                  </p>
-                </div>
+                </h1>
+                <p className="max-w-2xl text-lg text-slate-200/85">
+                  The next generation CanSat. Overbuilt from the ground up, maximum power with better efficiency.
+                </p>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {stats.map((item) => (
                     <div
@@ -383,121 +259,7 @@ export default function LunarisXNewPage() {
             </div>
           </section>
 
-          <section className="flex items-center gap-10">
-            <div className="flex w-1/4 shrink-0 justify-center lg:justify-start">
-              <div
-                className="relative w-full max-w-[320px] sm:max-w-[360px]"
-                style={{
-                  "--overlay-x": "0%",
-                  "--overlay-y": "0%",
-                  "--overlay-scale": 1,
-                  "--overlay-rotate": "0deg",
-                  "--overlay-opacity": 1,
-                  "--glow-opacity-min": 0.7,
-                  "--glow-opacity-max": 0.9,
-                  "--glow-speed": "4.5s",
-                  "--glow-color-1": "76, 80, 255",
-                  "--glow-color-2": "86, 35, 160",
-                  "--glow-alpha-1": 0.7,
-                  "--glow-alpha-2": 0.7,
-                  "--glow-alpha-1-peak": 0.9,
-                  "--glow-alpha-2-peak": 0.9,
-                  "--glow-size-1": "14px",
-                  "--glow-size-2": "34px",
-                  "--glow-size-1-peak": "22px",
-                  "--glow-size-2-peak": "58px",
-                }}
-              >
-                <Image
-                  src="/newesp.webp"
-                  alt="ESP32 module"
-                  width={620}
-                  height={1024}
-                  className="h-auto w-full object-contain drop-shadow-[0_35px_120px_rgba(0,0,0,0.75)]"
-                />
-                <Image
-                  src="/espoverlay.webp"
-                  alt=""
-                  fill
-                  sizes="(min-width: 640px) 360px, 320px"
-                  className="pointer-events-none object-contain mix-blend-screen"
-                  style={{
-                    transform:
-                      "translate(var(--overlay-x), var(--overlay-y)) scale(var(--overlay-scale)) rotate(var(--overlay-rotate))",
-                    opacity: "var(--overlay-opacity)",
-                    animation: "lx-esp-glow var(--glow-speed) ease-in-out infinite",
-                  }}
-                />
-                <Image
-                  src="/espoverlay.webp"
-                  alt="ESP32 overlay details"
-                  fill
-                  sizes="(min-width: 640px) 360px, 320px"
-                  className="object-contain"
-                  style={{
-                    transform:
-                      "translate(var(--overlay-x), var(--overlay-y)) scale(var(--overlay-scale)) rotate(var(--overlay-rotate))",
-                  }}
-                />
-              </div>
-            </div>
-            <div className="min-w-0 w-3/4 space-y-4 pr-6">
-              <div>
-                <p className="text-sm uppercase tracking-[0.25em] text-cyan-200">
-                  On-board computer
-                </p>
-                <h3 className="font-moderniz text-3xl text-white">
-                  ESP32 vs Arduino Uno R3
-                </h3>
-              </div>
-              <div className="grid gap-4 text-sm text-slate-200/90">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
-                    CPU + clock
-                  </p>
-                  <p className="mt-1">
-                    ESP32: dual‑core 32‑bit @ 240 MHz • Arduino Uno R3 (ATmega328P):
-                    8‑bit @ 16 MHz
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
-                    Memory
-                  </p>
-                  <p className="mt-1">
-                    ESP32: 520 kB SRAM • Arduino Uno R3: 2 kB SRAM
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
-                    Flash storage
-                  </p>
-                  <p className="mt-1">
-                    ESP32: 4 MB flash • Arduino Uno R3: 32 kB flash
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
-                    Connectivity
-                  </p>
-                  <p className="mt-1">
-                    ESP32: native Wi‑Fi + BLE • Arduino Uno R3: no native wireless
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
-                    Outcome
-                  </p>
-                  <p className="mt-1">
-                    More compute headroom, higher‑rate sensing, and easier expansion
-                    without redesign.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="space-y-4">
+          <section className="mt-10 space-y-4">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm uppercase tracking-[0.25em] text-cyan-200">
@@ -515,7 +277,7 @@ export default function LunarisXNewPage() {
               {gallery.map((item) => (
                 <figure
                   key={item.title}
-                  className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur"
+                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur aspect-[16/10]"
                 >
                   <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-slate-950/50" />
                   <Image
@@ -541,13 +303,15 @@ export default function LunarisXNewPage() {
             </div>
           </section>
 
-          <section className="space-y-4">
+          <section className="mt-8 space-y-4">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm uppercase tracking-[0.25em] text-cyan-200">
                   From Instagram
                 </p>
-                <h3 className="font-moderniz text-3xl text-white">Our socials</h3>
+                <h3 className="font-moderniz text-3xl text-white">
+                  Our socials
+                </h3>
               </div>
               <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-amber-100">
                 Social
@@ -633,7 +397,7 @@ export default function LunarisXNewPage() {
             </div>
           </section>
 
-          <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur">
+          <section className="relative mt-12 overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm uppercase tracking-[0.25em] text-cyan-200">
@@ -649,40 +413,25 @@ export default function LunarisXNewPage() {
             </div>
             <div className="mt-6 divide-y divide-white/10">
               {subsystemHighlights.map((row) => (
-                <div
-                  key={row.subsystem}
-                  className="grid gap-4 py-5 sm:grid-cols-[0.9fr,1fr,1.3fr] sm:items-start"
-                >
+                <div key={row.subsystem} className="grid gap-4 py-5 sm:grid-cols-[0.9fr,1fr,1.3fr] sm:items-start">
                   <div>
-                    <p className="text-xs uppercase tracking-[0.18em] text-cyan-200">
-                      Sub-system
-                    </p>
-                    <p className="mt-1 text-lg font-semibold text-white">
-                      {row.subsystem}
-                    </p>
+                    <p className="text-xs uppercase tracking-[0.18em] text-cyan-200">Sub-system</p>
+                    <p className="mt-1 text-lg font-semibold text-white">{row.subsystem}</p>
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.18em] text-slate-300">
-                      Key specification
-                    </p>
-                    <p className="mt-2 text-sm text-slate-200/85">
-                      {row.spec}
-                    </p>
+                    <p className="text-xs uppercase tracking-[0.18em] text-slate-300">Key specification</p>
+                    <p className="mt-2 text-sm text-slate-200/85">{row.spec}</p>
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.18em] text-amber-200">
-                      Advantage
-                    </p>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-200/90">
-                      {row.advantage}
-                    </p>
+                    <p className="text-xs uppercase tracking-[0.18em] text-amber-200">Advantage</p>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-200/90">{row.advantage}</p>
                   </div>
                 </div>
               ))}
             </div>
           </section>
 
-          <section className="relative rounded-3xl border border-white/10 bg-gradient-to-r from-cyan-500/15 via-slate-900/70 to-amber-400/15 p-8 shadow-2xl backdrop-blur sm:p-10">
+          <section className="relative mt-12 rounded-3xl border border-white/10 bg-gradient-to-r from-cyan-500/15 via-slate-900/70 to-amber-400/15 p-8 shadow-2xl backdrop-blur sm:p-10">
             <div className="absolute -left-10 -top-10 h-32 w-32 rounded-full bg-cyan-400/20 blur-3xl" />
             <div className="absolute -right-10 bottom-0 h-32 w-32 rounded-full bg-amber-300/20 blur-3xl" />
             <div className="relative grid gap-6 lg:grid-cols-[1fr,0.75fr] lg:items-center">
@@ -696,10 +445,7 @@ export default function LunarisXNewPage() {
                 <ul className="space-y-3 text-slate-200/90">
                   {reasons.map((reason) => (
                     <li key={reason} className="flex gap-3">
-                      <span
-                        className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-200"
-                        aria-hidden
-                      />
+                      <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-200" aria-hidden />
                       <span className="text-sm leading-relaxed">{reason}</span>
                     </li>
                   ))}
@@ -715,50 +461,6 @@ export default function LunarisXNewPage() {
           </section>
         </div>
       </div>
-
-      <style jsx global>{`
-        @keyframes lx-twinkle {
-          0% {
-            transform: scale(1);
-            opacity: 0.25;
-          }
-          100% {
-            transform: scale(1.25);
-            opacity: 1;
-          }
-        }
-        @keyframes lx-drift {
-          0% {
-            transform: translate3d(0px, 0px, 0);
-          }
-          100% {
-            transform: translate3d(-80px, 60px, 0);
-          }
-        }
-        @keyframes lx-esp-glow {
-          0%,
-          100% {
-            opacity: var(--glow-opacity-min);
-            filter: drop-shadow(
-                0 0 var(--glow-size-1) rgba(var(--glow-color-1), var(--glow-alpha-1))
-              )
-              drop-shadow(
-                0 0 var(--glow-size-2) rgba(var(--glow-color-2), var(--glow-alpha-2))
-              );
-          }
-          50% {
-            opacity: var(--glow-opacity-max);
-            filter: drop-shadow(
-                0 0 var(--glow-size-1-peak)
-                  rgba(var(--glow-color-1), var(--glow-alpha-1-peak))
-              )
-              drop-shadow(
-                0 0 var(--glow-size-2-peak)
-                  rgba(var(--glow-color-2), var(--glow-alpha-2-peak))
-              );
-          }
-        }
-      `}</style>
     </main>
   );
 }
