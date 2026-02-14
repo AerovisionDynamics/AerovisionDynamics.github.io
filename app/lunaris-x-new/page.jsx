@@ -287,7 +287,7 @@ export default function LunarisXNewPage() {
               </Link>
               <div className="flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-200">
                 <Sparkles className="h-3 w-3 text-amber-200" />
-                Placeholder sprint
+                Official Lunaris-X page by Aerovision Dynamics
               </div>
             </div>
 
@@ -305,7 +305,7 @@ export default function LunarisXNewPage() {
                 alt="Lunaris-X PCB render"
                 width={1600}
                 height={900}
-                className="relative h-auto w-[65vw] max-w-4xl rounded-2xl object-cover pcb-glow"
+                className="relative h-auto w-full max-w-4xl object-cover drop-shadow-[0_35px_120px_rgba(0,0,0,0.75)]"
                 priority
               />
             </div>
@@ -494,46 +494,6 @@ export default function LunarisXNewPage() {
                   </p>
                 </div>
               </div>
-            </div>
-          </section>
-
-          <section className="space-y-4">
-            <div className="flex justify-center text-center">
-              <h3 className="font-moderniz text-3xl text-white">
-                Overbuilt circuit board
-              </h3>
-            </div>
-            <div className="flex flex-wrap justify-center gap-3 text-sm text-slate-200/85">
-              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
-                1000 mA shared between 5V and 3.3V
-              </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
-                Heavy duty battery connectors
-              </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
-                Extreme vibrationproof
-              </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
-                Small form factor
-              </span>
-            </div>
-            <div className="flex justify-center">
-              <div className="relative w-full max-w-4xl">
-              <Image
-                src="/Board.webp"
-                alt="PCB board layout"
-                width={2128}
-                height={1208}
-                className="h-auto w-full rounded-2xl object-contain board-glow"
-              />
-              <Image
-                src="/Wiring.webp"
-                alt="Wiring overlay"
-                fill
-                sizes="(min-width: 1024px) 64vw, 100vw"
-                className="pointer-events-none object-contain wiring-sweep"
-              />
-            </div>
             </div>
           </section>
 
@@ -796,83 +756,6 @@ export default function LunarisXNewPage() {
                 0 0 var(--glow-size-2-peak)
                   rgba(var(--glow-color-2), var(--glow-alpha-2-peak))
               );
-          }
-        }
-        .wiring-sweep {
-          opacity: 0;
-          animation: lx-wiring-fade 7s ease-in-out infinite,
-            lx-wiring-sweep 7s linear infinite;
-          mask-image: linear-gradient(
-            90deg,
-            transparent 0%,
-            #000 18%,
-            #000 82%,
-            transparent 100%
-          );
-          mask-size: 200% 100%;
-          mask-position: 0% 0%;
-          -webkit-mask-image: linear-gradient(
-            90deg,
-            transparent 0%,
-            #000 18%,
-            #000 82%,
-            transparent 100%
-          );
-          -webkit-mask-size: 200% 100%;
-          -webkit-mask-position: 0% 0%;
-        }
-        @keyframes lx-wiring-fade {
-          0% {
-            opacity: 0;
-          }
-          40%,
-          70% {
-            opacity: 1;
-          }
-          100% {
-            opacity: 0;
-          }
-        }
-        @keyframes lx-wiring-sweep {
-          0% {
-            mask-position: -100% 0%;
-            -webkit-mask-position: -100% 0%;
-          }
-          100% {
-            mask-position: 100% 0%;
-            -webkit-mask-position: 100% 0%;
-          }
-        }
-        .pcb-glow {
-          animation: lx-pcb-glow 6s ease-in-out infinite;
-        }
-        @keyframes lx-pcb-glow {
-          0%,
-          100% {
-            filter: drop-shadow(0 35px 120px rgba(0, 0, 0, 0.75))
-              drop-shadow(0 0 18px rgba(140, 180, 255, 0.18))
-              drop-shadow(0 0 36px rgba(90, 120, 220, 0.12));
-          }
-          50% {
-            filter: drop-shadow(0 35px 120px rgba(0, 0, 0, 0.75))
-              drop-shadow(0 0 26px rgba(140, 180, 255, 0.35))
-              drop-shadow(0 0 52px rgba(90, 120, 220, 0.22));
-          }
-        }
-        .board-glow {
-          animation: lx-board-glow 6s ease-in-out infinite;
-        }
-        @keyframes lx-board-glow {
-          0%,
-          100% {
-            filter: drop-shadow(0 30px 100px rgba(0, 0, 0, 0.7))
-              drop-shadow(0 0 16px rgba(140, 180, 255, 0.16))
-              drop-shadow(0 0 32px rgba(90, 120, 220, 0.1));
-          }
-          50% {
-            filter: drop-shadow(0 30px 100px rgba(0, 0, 0, 0.7))
-              drop-shadow(0 0 24px rgba(140, 180, 255, 0.32))
-              drop-shadow(0 0 48px rgba(90, 120, 220, 0.2));
           }
         }
       `}</style>
