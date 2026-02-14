@@ -375,7 +375,7 @@ const projectCards = [
     imageHeight: "h-52",
   },
   {
-    tag: "Research concept/prototype",
+    tag: "Functional satellite",
     title: "Lunaris-X",
     body: "Our next concept is in discovery; full details and visuals will be published soon.",
     image: "/lunaris.webp",
