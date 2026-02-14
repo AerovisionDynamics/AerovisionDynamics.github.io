@@ -145,32 +145,50 @@ const Hero = () => (
       </motion.div>
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.1 }}>
-        <Card className="p-6">
-          <div className="mb-2 flex items-center gap-3">
-            <div className="grid h-10 w-10 place-items-center rounded-xl bg-sky-100"><BookOpen className="h-5 w-5 text-sky-700"/></div>
-            <div>
-              <p className="text-sm font-medium text-slate-700">Quick facts</p>
-              <p className="text-xs text-slate-500">Overview at a glance</p>
+        <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-slate-900 via-slate-900 to-sky-950 text-white shadow-[0_30px_80px_rgba(2,6,23,0.35)]">
+          <div className="absolute -top-20 -right-10 h-48 w-48 rounded-full bg-sky-500/25 blur-3xl" />
+          <div className="absolute -bottom-20 -left-10 h-48 w-48 rounded-full bg-amber-400/20 blur-3xl" />
+          <div className="relative p-6">
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="grid h-11 w-11 place-items-center rounded-xl bg-white/10">
+                  <Satellite className="h-5 w-5 text-cyan-200" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-white">Our current project</p>
+                  <p className="text-xs text-slate-300">Mission briefing live</p>
+                </div>
+              </div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-cyan-200/40 bg-cyan-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan-100">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-200" />
+                Active
+              </span>
             </div>
+
+            <Link
+              href="/lunaris-x"
+              className="group relative block overflow-hidden rounded-2xl border border-white/15 bg-white/5 p-6 transition hover:border-white/30 hover:shadow-[0_25px_60px_rgba(14,116,144,0.35)]"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.25),transparent_45%),radial-gradient(circle_at_85%_0%,rgba(251,191,36,0.2),transparent_35%)] opacity-40 transition duration-300 group-hover:opacity-70" />
+              <div className="relative flex items-center justify-between gap-4">
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-100/80">
+                    Lunaris-X
+                  </p>
+                  <p className="font-moderniz text-2xl text-white sm:text-3xl">
+                    CanSat development
+                  </p>
+                  <p className="max-w-md text-sm text-slate-200/85">
+                    Follow the mission, avionics stack, and media as the satellite comes together.
+                  </p>
+                </div>
+                <div className="grid h-12 w-12 place-items-center rounded-full border border-white/30 text-white transition group-hover:translate-x-1 group-hover:border-cyan-200 group-hover:text-cyan-100">
+                  <ArrowUpRight className="h-5 w-5" />
+                </div>
+              </div>
+            </Link>
           </div>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-600">
-            <li>Team led by Technasium students</li>
-            <li>Based at Keizer Karel College, Amstelveen</li>
-            <li>We prototype, simulate, and bench‑test</li>
-          </ul>
         </Card>
-        <div className="mt-4 grid grid-cols-3 gap-3 text-center">
-          {[
-            { label: "Members", value: "4" },
-            { label: "Projects", value: "2" },
-            { label: "Founded", value: "2024" },
-          ].map((s) => (
-            <Card key={s.label} className="p-4">
-              <div className="text-2xl font-bold text-slate-900">{s.value}</div>
-              <div className="text-xs text-slate-500">{s.label}</div>
-            </Card>
-          ))}
-        </div>
       </motion.div>
     </div>
   </section>
